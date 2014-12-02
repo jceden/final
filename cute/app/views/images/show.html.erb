@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @image.filename %>
+</p>
+
+<p>
+  <strong>Cute vote:</strong>
+  <%= @image.cute_vote %>
+</p>
+
+<p>
+  <strong>Total vote:</strong>
+  <%= @image.total_vote %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @image.user %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>
