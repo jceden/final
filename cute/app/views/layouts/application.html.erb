@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-the following two lines is used for adding devise user log in/log out buttons to each page
+<%#the following two lines is used for adding devise user log in/log out buttons to each page%>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<div id="user_nav">
+<% if user_signed_in? %>
+Signed in as <%= current_user.email %>. Not you?
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "Sign up", new_user_registration_path %> or
+<%= link_to "Sign in", new_user_session_path %>
+<% end %>
+</div>
   <title>Cute</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

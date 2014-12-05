@@ -4,6 +4,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :filename
       t.integer :cute_vote
       t.integer :total_vote
+      t.string :img_type
       t.references :user, index: true
 
       t.timestamps

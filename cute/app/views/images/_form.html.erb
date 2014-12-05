@@ -1,4 +1,5 @@
 <%= form_for(@image) do |f| %>
+ <%= f.file_field :uploaded_file %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -10,23 +11,13 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :filename %><br>
-    <%= f.text_field :filename %>
-  </div>
-  <div class="field">
-    <%= f.label :cute_vote %><br>
-    <%= f.number_field :cute_vote %>
-  </div>
-  <div class="field">
-    <%= f.label :total_vote %><br>
-    <%= f.number_field :total_vote %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
+<br>
+<br>
+	<%=f.label :catagory%>
+	<%=f.text_field :img_type%>
+	</div>
+<br>
+<br>
   <div class="actions">
     <%= f.submit %>
   </div>
