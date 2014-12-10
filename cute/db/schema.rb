@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20141202225207) do
 
   create_table "posts", force: true do |t|
     t.string   "comment"
+    t.string   "username"
     t.integer  "image_id"
     t.integer  "user_id"
-    t.datetime "posted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

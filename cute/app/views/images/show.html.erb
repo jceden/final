@@ -1,9 +1,16 @@
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>
 <p id="notice"><%= notice %></p>
 <center><table>
-<%= image_tag root_url + "/images/" + @image.filename, alt: @image.filename %><br>
-<%=button_to "Cute", image_cute_vote_path(@image), :method => :post%>
-Total
-<%=button_to "Not"%>
+<%=@image.img_type%>
+<%= image_tag root_url + "/images/" + @image.filename, size: "500x550", alt: @image.filename %><br>
+<%= render 'yes_vote', image: @image %>
+<% if @image.total_vote != 0%>
+	<%= @image.cute_vote/@image.total_vote%>
+<% else %>
+<%@image.percent_cute%>	
+<% end %>
+<%= render 'no_vote', image: @image %>
 </table></center>
 
 <%if @image.posts.length == 1 %>
@@ -15,7 +22,7 @@ Total
 	<%if !post.new_record? %>
 <tr>
 		<%=post.comment%><br>
-	Posted by: <%=post.user_id%>
+	Posted by: <%=post.username%>
 <br>
 	Posted on: <%=post.created_at%>
 <br>
@@ -25,5 +32,4 @@ Total
 </table>
 	<%= render 'posts/form'%>
 <%end%>
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+

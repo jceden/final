@@ -1,14 +1,14 @@
-<h1>Listing images</h1>
+<h1>Cute or Not</h1>
 
 <table>
 
   <tbody>
-    <% @images.each do |image| %>
+	<% @display_dogs.each do |dog|%>
       <tr>
-	<%= link_to image_tag(root_url + "images/" + image.filename, size: "100x100", alt: image.filename), image%>&nbsp&nbsp
+	<%= link_to image_tag(root_url + "images/" + dog.filename, size: "100x100", alt: dog.other_filename), dog%>&nbsp&nbsp
 		
       </tr>
-    <% end %>
+	<%end%>
   </tbody>
 </table>
 

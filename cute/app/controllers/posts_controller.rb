@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 	@image = Image.find params[:image_id]
   	@post = @image.posts.new(post_params)
 	@post.user_id = current_user
+	@post.username = current_user.username
 
 	if @post.save
 		redirect_to @image, notice: 'Comment posted'

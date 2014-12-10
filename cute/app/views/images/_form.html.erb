@@ -1,5 +1,9 @@
 <%= form_for(@image) do |f| %>
  <%= f.file_field :uploaded_file %>
+<br>
+<br>
+Catagory:
+  <%=f.select :img_type, options_for_select([["Dog"], ["Cat"],["Horse"],["Reptile"],["Rodent"],["Baby"],["Bird"]])%>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -11,11 +15,6 @@
       </ul>
     </div>
   <% end %>
-<br>
-<br>
-	<%=f.label :catagory%>
-	<%=f.text_field :img_type%>
-	</div>
 <br>
 <br>
   <div class="actions">
