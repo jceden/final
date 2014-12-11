@@ -18,6 +18,12 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
 	@post = @image.posts.new
+	@image = Image.find(params[:id])
+	if @image.total_vote > 0
+		@cute_percent = (@image.cute_vote.to_f/@image.total_vote.to_f*100.00).to_i
+	else
+		@cute_percent = 0
+	end
   end
 
   # GET /images/new

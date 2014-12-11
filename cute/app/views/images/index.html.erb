@@ -3,57 +3,33 @@
 <%= link_to 'New Image', new_image_path %>
 <%end%>
 <h3> What do you want to look at?</h3>
-<table>
+<table style ="width:100%" border="1">
 
   <tbody>
       <tr>
-<strong>Dogs</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_dog.filename, size: "100x100"), @display_dog%>&nbsp&nbsp
-<br>
+<td><center><strong>Dogs</strong></td>
+<td><center><strong>Cats</strong></td>
+<td><center><strong>Horses</strong></td>
+<td><center><strong>Rodents</strong></td>
       </tr>
       <tr>
-<strong>Cats</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_cat.filename, size: "100x100"), @display_cat%>&nbsp&nbsp
-<br>
+<td><center><%= link_to image_tag(root_url + "images/" + @display_dog.filename, size: "100x100"), @display_dog%></td>
+<td><center><%= link_to image_tag(root_url + "images/" + @display_cat.filename, size: "100x100"), @display_cat%></td>
+<td><center><%= link_to image_tag(root_url + "images/" + @display_horse.filename, size: "100x100"), @display_horse%></td>
+<td><center><%= link_to image_tag(root_url + "images/" + @display_rodent.filename, size: "100x100"), @display_rodent%></td>
       </tr>
-      <tr>
-<strong>Horses</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_horse.filename, size: "100x100"), @display_horse%>&nbsp&nbsp
-<br>
-      </tr>
-      <tr>
-<strong>Rodents</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_rodent.filename, size: "100x100"), @display_rodent%>&nbsp&nbsp	
-<br>
-      </tr>
-      <tr>
-<strong>Hedgehogs</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_hedgehog.filename, size: "100x100"), @display_hedgehog%>&nbsp&nbsp	
-<br>
-      </tr>
-      <tr>
-<strong>Birds</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_bird.filename, size: "100x100"), @display_bird%>&nbsp&nbsp	
-<br>
-      </tr>
-      <tr>
-<strong>Babies</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_baby.filename, size: "100x100"), @display_baby%>&nbsp&nbsp	
-<br>
-      </tr>
-      <tr>
-<strong>Reptiles</strong>
-<br>
-	<%= link_to image_tag(root_url + "images/" + @display_reptile.filename, size: "100x100"), @display_reptile%>&nbsp&nbsp	
-<br>
-      </tr>
+	<tr>
+<td><center><strong>Hedgehogs</strong></td>
+<td><center><strong>Birds</strong></td>
+<td><center><strong>Babies</strong>
+<td><center><strong>Reptiles</strong></td>
+	</tr>
+	<tr>
+<td><center><%= link_to image_tag(root_url + "images/" + @display_hedgehog.filename, size: "100x100"), @display_hedgehog%></td>
+<td><center><%= link_to image_tag(root_url + "images/" + @display_bird.filename, size: "100x100"), @display_bird%></td>	
+<td><center><%= link_to image_tag(root_url + "images/" + @display_baby.filename, size: "100x100"), @display_baby%></td>	
+<td><center><%= link_to image_tag(root_url + "images/" + @display_reptile.filename, size: "100x100"), @display_reptile%>
+	</tr>
   </tbody>
 </table>
 
