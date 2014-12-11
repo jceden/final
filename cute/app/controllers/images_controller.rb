@@ -4,8 +4,14 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all.map{|x| x if x.img_type == "Dog"}.compact!.sample
-    @display_dogs = Image.all.map{|x| x if x.img_type == "Dog"}.compact!.sample
+    @display_dog = Image.all.map{|x| x if x.img_type == "Dog"}.compact!.sample
+    @display_cat = Image.all.map{|x| x if x.img_type == "Cat"}.compact!.sample
+    @display_baby = Image.all.map{|x| x if x.img_type == "Baby"}.compact!.sample
+    @display_reptile = Image.all.map{|x| x if x.img_type == "Reptile"}.compact!.sample
+    @display_horse = Image.all.map{|x| x if x.img_type == "Horse"}.compact!.sample
+    @display_hedgehog = Image.all.map{|x| x if x.img_type == "Hedgehog"}.compact!.sample
+    @display_bird = Image.all.map{|x| x if x.img_type == "Bird"}.compact!.sample
+    @display_rodent = Image.all.map{|x| x if x.img_type == "Rodent"}.compact!.sample
   end
 
   # GET /images/1
@@ -71,19 +77,27 @@ class ImagesController < ApplicationController
 
   def yes_vote
 	@image = Image.find(params[:id])
-	@dice = Image.all.sample
 	@image.cute_vote = @image.cute_vote + 1
 	@image.total_vote = @image.total_vote + 1
 	@image.save
+	@dice = Image.all.map{|x| x if x.img_type == @image.img_type and x.id != @image.id}.compact!.sample
+	if @dice == nil
+	redirect_to root_url
+	else
 	redirect_to @dice
+	end
   end
 
   def no_vote
 	@image = Image.find(params[:id])
 	@image.total_vote = @image.total_vote + 1
 	@image.save
-	@image = Image.all.sample
-	redirect_to @image
+	@dice = Image.all.map{|x| x if x.img_type == @image.img_type and x.id != @image.id}.compact!.sample
+	if @dice == nil
+	redirect_to root_url
+	else
+	redirect_to @dice
+	end
   end
 
   # DELETE /images/1

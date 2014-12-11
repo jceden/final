@@ -3,7 +3,7 @@
 <br>
 <br>
 Catagory:
-  <%=f.select :img_type, options_for_select([["Dog"], ["Cat"],["Horse"],["Reptile"],["Rodent"],["Baby"],["Bird"]])%>
+  <%=f.select :img_type, options_for_select([["Dog"], ["Cat"],["Horse"],["Reptile"],["Hedgehog"],["Rodent"],["Baby"],["Bird"]])%>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>

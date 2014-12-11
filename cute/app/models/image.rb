@@ -15,7 +15,4 @@ class Image < ActiveRecord::Base
 		(Image.all - self).map{|image| image if image.img_type == self.img_type and image.id != self.id}.compact!.sample
 	end
 
-	def rando_dog
-		(Image.all).map{|image| image if image.img_type == "Dog"}.compact!.sample
-	end
 end

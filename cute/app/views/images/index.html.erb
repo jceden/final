@@ -1,17 +1,60 @@
 <h1>Cute or Not</h1>
-
+<%if user_signed_in?%>
+<%= link_to 'New Image', new_image_path %>
+<%end%>
+<h3> What do you want to look at?</h3>
 <table>
 
   <tbody>
-	<% @display_dogs.each do |dog|%>
       <tr>
-	<%= link_to image_tag(root_url + "images/" + dog.filename, size: "100x100", alt: dog.other_filename), dog%>&nbsp&nbsp
-		
+<strong>Dogs</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_dog.filename, size: "100x100"), @display_dog%>&nbsp&nbsp
+<br>
       </tr>
-	<%end%>
+      <tr>
+<strong>Cats</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_cat.filename, size: "100x100"), @display_cat%>&nbsp&nbsp
+<br>
+      </tr>
+      <tr>
+<strong>Horses</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_horse.filename, size: "100x100"), @display_horse%>&nbsp&nbsp
+<br>
+      </tr>
+      <tr>
+<strong>Rodents</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_rodent.filename, size: "100x100"), @display_rodent%>&nbsp&nbsp	
+<br>
+      </tr>
+      <tr>
+<strong>Hedgehogs</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_hedgehog.filename, size: "100x100"), @display_hedgehog%>&nbsp&nbsp	
+<br>
+      </tr>
+      <tr>
+<strong>Birds</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_bird.filename, size: "100x100"), @display_bird%>&nbsp&nbsp	
+<br>
+      </tr>
+      <tr>
+<strong>Babies</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_baby.filename, size: "100x100"), @display_baby%>&nbsp&nbsp	
+<br>
+      </tr>
+      <tr>
+<strong>Reptiles</strong>
+<br>
+	<%= link_to image_tag(root_url + "images/" + @display_reptile.filename, size: "100x100"), @display_reptile%>&nbsp&nbsp	
+<br>
+      </tr>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Image', new_image_path %>
