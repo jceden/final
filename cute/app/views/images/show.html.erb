@@ -14,14 +14,19 @@
 </td></center>
 </table>
 <%if user_signed_in?%>
-	<%if @image.posts.length == 1 %>
+	<%if @image.posts.length == 0 %>
 		No comments on this image yet, be the first!
 		<%= render 'posts/form'%>
 	<%else%>
 	<table border="1" style="width:100%">
+<tr style="background-color:lightgray">
+	<td><strong>Poster</td>
+	<td><strong>Comment</td>
+	<td><strong>Dated Posted</td>
+</tr>
 		<%@image.posts.each do |post|%>
-			<%if !post.new_record? %>
 <tr>
+			<%if !post.new_record? %>	
 			<td>Posted by: <%=post.username%></td>
 			<td><%=post.comment%></td>
 			<td>Posted on: <%=post.created_at%></td>
